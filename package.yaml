@@ -25,17 +25,6 @@ dependencies:
 library:
   source-dirs: src
 
-executables:
-  lib-template-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - lib-template
-
 tests:
   lib-template-test:
     main:                Spec.hs
@@ -46,3 +35,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - lib-template
+    - hspec

@@ -1,3 +1,16 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-sed -i "s/lib-template/$1" **/*
+echo Renaming all instances of lib-template to: $1
+sed -i "s/lib-template/$1/g" **/*.{yaml,hs,md}
+
+echo Deleting the Git directory
+rm -rf .git
+
+echo Deleting the .stack-work directory
+rm -rf .stack-work
+
+echo Deleting the old cabal file
+rm lib-template.cabal
+
+echo Initializing the new Git directory
+git init
